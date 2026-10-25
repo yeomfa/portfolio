@@ -10,11 +10,14 @@ interface Props {
   description: string;
   /** This page's path in the other language. */
   alternate: string;
+  /** Keeps the page out of search results (the 404). */
+  noindex?: boolean;
 }
 
-const { lang, title, description, alternate } = Astro.props;
+const { lang, title, description, alternate, noindex = false } = Astro.props;
 const t = ui[lang];
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// With build.format 'file' the build sees /index.html and /en.html; the site serves / and /en.
+const canonical = new URL(Astro.url.pathname.replace(/(\/index)?\.html$/, '') || '/', Astro.site);
 const alt = new URL(alternate, Astro.site);
 ---
 <!doctype html>
@@ -24,10 +27,16 @@ const alt = new URL(alternate, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={lang} href={canonical} />
-    <link rel="alternate" hreflang={t.other.lang} href={alt} />
-    <link rel="alternate" hreflang="x-default" href={lang === 'es' ? canonical : alt} />
+    {noindex ? (
+      <meta name="robots" content="noindex" />
+    ) : (
+      <>
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" hreflang={lang} href={canonical} />
+        <link rel="alternate" hreflang={t.other.lang} href={alt} />
+        <link rel="alternate" hreflang="x-default" href={lang === 'es' ? canonical : alt} />
+      </>
+    )}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
