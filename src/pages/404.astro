@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { ui, paths, slugOf } from '../i18n/ui';
+
+const t = ui.es;
+const projects = (await getCollection('proyectos', (p) => p.id.startsWith('es/'))).sort((a, b) => a.data.order - b.data.order);
+---
+<Base lang="es" title={t.notFound.title} description={t.notFound.lead} alternate={paths.home('en')}>
+  <section class="notfound" aria-labelledby="h-404">
+    <div class="container split split--even">
+      <div class="split__text">
+        <h1 id="h-404">{t.notFound.title}</h1>
+        <p class="lead">{t.notFound.lead}</p>
+        <div class="actions">
+          <a class="btn btn--primary" href={paths.home('es')}>{t.notFound.back}</a>
+        </div>
+      </div>
+      <ul class="lost" aria-label={t.nav.projects}>
+        {projects.map((p) => (
+          <li><a href={paths.project('es', slugOf(p))}>{p.data.title}</a><span class="caption">{p.data.lede}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>

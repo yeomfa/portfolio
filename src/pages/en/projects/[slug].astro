@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Project from '../../../components/Project.astro';
+import { slugOf } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('proyectos', (p) => p.id.startsWith('en/'))).sort((a, b) => a.data.order - b.data.order);
+  return all.map((p, i) => ({
+    params: { slug: slugOf(p) },
+    props: { project: p, next: all[(i + 1) % all.length] },
+  }));
+}
+
+const { project, next } = Astro.props;
+---
+<Project lang="en" project={project} next={next} />

@@ -1,0 +1,128 @@
+---
+import { Picture } from 'astro:assets';
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Shot from './Shot.astro';
+import retrato from '../assets/retrato.png';
+import { ui, paths, slugOf, EMAIL, LINKEDIN, GITHUB, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const acuda = await getEntry('proyectos', `${lang}/acuda`);
+if (!acuda) throw new Error(`Falta el proyecto ${lang}/acuda`);
+const own = (await getCollection('proyectos', (p) => p.id.startsWith(`${lang}/`) && p.data.group !== 'construye')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+<Base lang={lang} title={t.title} description={t.description} alternate={paths.home(t.other.lang)}>
+  <section class="hero" aria-labelledby="h-hero">
+    <figure class="hero__photo">
+      <Picture
+        src={retrato}
+        formats={['avif', 'webp']}
+        fallbackFormat="jpg"
+        quality={78}
+        widths={[640, 960, 1254]}
+        sizes="(min-width: 60rem) 66vw, 100vw"
+        alt={t.hero.alt}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+    <div class="container">
+      <h1 id="h-hero">{t.hero.head}</h1>
+      <p class="lead">{t.hero.lead}</p>
+      <div class="actions">
+        <a class="btn btn--primary" href={`mailto:${EMAIL}`}>{t.hero.primary}</a>
+        <a class="btn" href={`#${t.ids.case}`}>{t.hero.secondary}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section case" id={t.ids.case} aria-labelledby="h-case">
+    <div class="container split">
+      <div class="split__text">
+        <h2 id="h-case">{t.case.head}</h2>
+        <p class="lead">{acuda.data.lede}</p>
+        <dl class="facts">
+          <div><dt>{t.facts.role}</dt><dd class="is-person">{acuda.data.role}</dd></div>
+          <div><dt>{t.facts.since}</dt><dd><time class="measured" datetime={acuda.data.since}>{acuda.data.sinceLabel}</time></dd></div>
+          <div><dt>{t.facts.where}</dt><dd>{acuda.data.where}</dd></div>
+        </dl>
+        <div><a class="btn" href={paths.project(lang, 'acuda')}>{t.case.cta}</a></div>
+      </div>
+      <Shot {...acuda.data.cover} sizes="(min-width: 60rem) 62vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section" id={t.ids.background} aria-labelledby="h-background">
+    <div class="container split split--even">
+      <div class="split__text">
+        <h2 id="h-background">{t.background.head}</h2>
+        <dl class="roles">
+          {t.background.roles.map((r) => <div><dt>{r.verb}</dt><dd>{r.line}</dd></div>)}
+        </dl>
+      </div>
+      <div class="record">
+        <ol class="trail" aria-label={t.background.recordLabel}>
+          {t.background.record.map((r) => (
+            <li>
+              <time class="measured" datetime={r.when}>{r.label}</time>
+              <span class="what">{r.what}<span>{r.detail}</span><span class="who">{r.who}</span></span>
+            </li>
+          ))}
+        </ol>
+        <div class="reading">
+          <p class="reading__value">3+</p>
+          <p>{t.background.reading}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--l" id={t.ids.projects} aria-labelledby="h-projects">
+    <div class="container">
+      <header class="head">
+        <h2 id="h-projects">{t.projects.head}</h2>
+        <p class="lead">{t.projects.lead}</p>
+      </header>
+      <div class="work">
+        {own.map((p) => (
+          <article class="work__item" aria-labelledby={`h-${slugOf(p)}`}>
+            <div class="split">
+              <div class="split__text">
+                <h3 id={`h-${slugOf(p)}`}>{p.data.title}</h3>
+                <p class="lead">{p.data.lede}</p>
+                <dl class="facts">
+                  <div><dt>{t.facts.role}</dt><dd class="is-person">{p.data.role}</dd></div>
+                  <div><dt>{t.facts.status}</dt><dd>{p.data.status}</dd></div>
+                </dl>
+                <div><a class="btn" href={paths.project(lang, slugOf(p))}>{t.projects.see(p.data.title)}</a></div>
+              </div>
+              <Shot {...p.data.cover} sizes="(min-width: 60rem) 58vw, 100vw" />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--l contact" id={t.ids.contact} aria-labelledby="h-contact">
+    <div class="container split">
+      <div>
+        <h2 id="h-contact">{t.contact.head}</h2>
+        <a class="contact__mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </div>
+      <dl class="facts">
+        <div><dt>LinkedIn</dt><dd><a class="link" href={LINKEDIN} target="_blank" rel="noopener">in/omarfandino<span class="visually-hidden"> {t.newTab}</span></a></dd></div>
+        <div><dt>GitHub</dt><dd><a class="link" href={GITHUB} target="_blank" rel="noopener">yeomfa<span class="visually-hidden"> {t.newTab}</span></a></dd></div>
+        <div><dt>{t.contact.location}</dt><dd>{t.contact.locationValue}</dd></div>
+        <div><dt>{t.contact.languages}</dt><dd>{t.contact.languagesValue}</dd></div>
+      </dl>
+    </div>
+  </section>
+</Base>

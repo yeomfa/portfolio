@@ -1,0 +1,26 @@
+---
+import { ui, paths, EMAIL, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  alternate: string;
+}
+
+const { lang, alternate } = Astro.props;
+const t = ui[lang];
+const links = [
+  { href: paths.section(lang, t.ids.projects), label: t.nav.projects },
+  { href: paths.section(lang, t.ids.background), label: t.nav.background },
+  { href: paths.section(lang, t.ids.contact), label: t.nav.contact },
+];
+---
+<nav class="pill" aria-label={t.nav.label}>
+  <a class="pill__home" href={paths.home(lang)} aria-label={t.nav.home}>
+    <img src="/wordmark-dark.svg" width="637" height="94" alt="" />
+  </a>
+  <ul>
+    {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+  </ul>
+  <a class="pill__lang" href={alternate} hreflang={t.other.lang} lang={t.other.lang}>{t.other.label}</a>
+  <a class="btn" href={`mailto:${EMAIL}`}>{t.nav.email}</a>
+</nav>

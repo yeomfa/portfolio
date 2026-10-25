@@ -1,0 +1,26 @@
+---
+import { ui, paths, EMAIL, LINKEDIN, GITHUB, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="container">
+    <a class="foot__mark" href={paths.home(lang)} aria-label={t.nav.home}>
+      <img src="/wordmark-dark.svg" width="637" height="94" alt="" loading="lazy" />
+    </a>
+    <div class="foot__links">
+      <ul>
+        <li><a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <li><a class="link" href={LINKEDIN} target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> {t.newTab}</span></a></li>
+        <li><a class="link" href={GITHUB} target="_blank" rel="noopener">GitHub<span class="visually-hidden"> {t.newTab}</span></a></li>
+      </ul>
+      <p>© {year} Omar Fandiño</p>
+    </div>
+  </div>
+</footer>

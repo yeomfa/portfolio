@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Shot from './Shot.astro';
+import { ui, paths, slugOf, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  project: CollectionEntry<'proyectos'>;
+  next: CollectionEntry<'proyectos'>;
+}
+
+const { lang, project, next } = Astro.props;
+const t = ui[lang];
+const d = project.data;
+const slug = slugOf(project);
+const [first, ...rest] = d.screens;
+const wide = rest.filter((s) => s.kind === 'wide');
+const phones = rest.filter((s) => s.kind === 'phone');
+---
+<Base lang={lang} title={`${d.title}, ${d.lede}`} description={`${d.title}: ${d.lede} ${d.statement}`} alternate={paths.project(t.other.lang, slug)}>
+  <section class="project-hero" aria-labelledby="h-project">
+    <div class="container split">
+      <div class="split__text">
+        <p class="crumb"><a href={paths.section(lang, t.ids.projects)}>{t.project.crumb}</a></p>
+        <h1 id="h-project">{d.title}</h1>
+        <p class="lead">{d.lede}</p>
+        <dl class="facts">
+          <div><dt>{t.facts.role}</dt><dd class="is-person">{d.role}</dd></div>
+          {d.sinceLabel && <div><dt>{t.facts.since}</dt><dd><time class="measured" datetime={d.since}>{d.sinceLabel}</time></dd></div>}
+          <div><dt>{t.facts.where}</dt><dd>{d.where}</dd></div>
+          <div><dt>{t.facts.status}</dt><dd>{d.status}</dd></div>
+        </dl>
+        <div><a class="btn btn--primary" href={d.url} target="_blank" rel="noopener">{t.project.visit(d.urlLabel)}<span class="visually-hidden"> {t.newTab}</span></a></div>
+      </div>
+      <Shot {...d.cover} sizes="(min-width: 60rem) 64vw, 100vw" eager />
+    </div>
+  </section>
+
+  <section class="section" aria-label={t.project.statementLabel}>
+    <div class="container">
+      <p class="statement">{d.statement}</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-did">
+    <div class:list={['container', 'split', first?.kind === 'phone' ? 'split--even' : '']}>
+      <div class="split__text">
+        <h2 id="h-did">{d.didTitle}</h2>
+        <ol class="did">
+          {d.did.map((item) => <li>{item}</li>)}
+        </ol>
+        <ul class="stack" aria-label={t.project.stackLabel}>
+          {d.stack.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+      {first && <Shot {...first} />}
+    </div>
+  </section>
+
+  {(wide.length > 0 || phones.length > 0) && (
+    <section class="section" aria-label={t.project.moreLabel}>
+      <div class:list={['container', 'showcase', wide.length > 0 && phones.length > 0 ? 'showcase--pair' : '']}>
+        {wide.map((s) => <Shot {...s} sizes="(min-width: 60rem) 64vw, 100vw" />)}
+        {phones.map((s) => <Shot {...s} />)}
+      </div>
+      {d.note && <div class="container"><p class="caption">{d.note}</p></div>}
+    </section>
+  )}
+
+  <section class="section" aria-label={t.project.next}>
+    <div class="container">
+      <div class="next">
+        <span class="caption">{t.project.next}</span>
+        <a href={paths.project(lang, slugOf(next))}>{next.data.title}</a>
+        <span class="caption">{next.data.lede}</span>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,5 @@
+# Native packages allowed to run install scripts (pnpm blocks the rest).
+allowBuilds:
+  sharp: true
+  esbuild: true
+  workerd: true

@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption: string;
+  kind?: 'wide' | 'phone';
+  sizes?: string;
+  eager?: boolean;
+}
+
+const { src, alt, caption, kind = 'wide', sizes, eager = false } = Astro.props;
+const widths = kind === 'phone' ? [320, 640] : [640, 960, 1280, 1920];
+const defaultSizes = kind === 'phone' ? '300px' : '(min-width: 60rem) 60vw, 100vw';
+---
+<figure class:list={['shot', `shot--${kind}`]}>
+  <div class:list={['bezel', `bezel--${kind}`]}>
+    <div class="bezel__screen">
+      <Image
+        src={src}
+        alt={alt}
+        widths={widths.filter((w) => w <= src.width)}
+        sizes={sizes ?? defaultSizes}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+      />
+    </div>
+  </div>
+  <figcaption class="caption">{caption}</figcaption>
+</figure>
