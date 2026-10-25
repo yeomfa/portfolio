@@ -1,5 +1,6 @@
 ---
 title: Tobot
+mark: /logos/tobot.svg
 order: 4
 group: ensena
 lede: Fundamentos de programación e IA, armando bloques que un robot ejecuta paso a paso.

@@ -37,6 +37,7 @@ La escala de espacio, la tipográfica, las curvas y las duraciones son las del s
 ## Marca
 - Logotipo: `omaryesid` en tinta y `.dev` en azul frío, Host Grotesk 500 en trazos (`brand/logo/wordmark-dark.svg`, `wordmark-light.svg`).
 - Monograma: `o.` en tinta ámbar oscuro sobre ámbar, esquina de 22% (`brand/logo/monogram.svg`); la versión callada va sobre el fondo (`monogram-quiet.svg`). Favicon: `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`.
+- Proyectos: el símbolo oficial de cada uno (`public/logos/`) va junto a su nombre escrito en Host Grotesk, a 0.86em del texto que acompaña. Es el único lugar donde entran los colores de los proyectos; la interfaz sigue en ámbar y azul frío.
 - Área de respeto: la altura de la `o` alrededor de todo el logotipo. Tamaño mínimo: 96px de ancho el logotipo, 16px el monograma.
 
 ## Controles

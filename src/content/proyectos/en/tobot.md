@@ -1,5 +1,6 @@
 ---
 title: Tobot
+mark: /logos/tobot.svg
 order: 4
 group: ensena
 lede: Programming and AI basics, built from blocks that a robot runs step by step.

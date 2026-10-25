@@ -1,0 +1,18 @@
+---
+/** A project's own symbol beside its name. Decorative: the name is always written next to it. */
+interface Props {
+  src: string;
+}
+
+// Intrinsic proportions of each symbol, so the row does not shift while it loads.
+const SIZES: Record<string, [number, number]> = {
+  'acuda.svg': [300, 300],
+  'mocta.svg': [304, 290],
+  'kipun.svg': [146, 190],
+  'tobot.svg': [32, 32],
+};
+
+const { src } = Astro.props;
+const [width, height] = SIZES[src.split('/').pop() ?? ''] ?? [1, 1];
+---
+<img class="mark" src={src} width={width} height={height} alt="" loading="lazy" decoding="async" />

@@ -34,13 +34,13 @@ export const ui = {
       secondary: 'Ver ACUDA',
     },
     case: { head: 'Cada paso, ligado a su norma', cta: 'Ver el caso' },
-    facts: { role: 'Rol', since: 'Desde', where: 'Dónde', status: 'Estado' },
+    facts: { project: 'Proyecto', role: 'Rol', since: 'Desde', where: 'Dónde', status: 'Estado' },
     background: {
       head: 'Construyo, emprendo y enseño',
       roles: [
-        { verb: 'Construyo', line: 'Plataformas con IA, como ACUDA.' },
-        { verb: 'Emprendo', line: 'Mocta, mi empresa, y su producto Kipun.' },
-        { verb: 'Enseño', line: 'Programación en UNIPAZ, y Tobot.' },
+        { verb: 'Construyo', line: 'Plataformas con IA, como ACUDA.', marks: ['acuda'] },
+        { verb: 'Emprendo', line: 'Mocta, mi empresa, y su producto Kipun.', marks: ['mocta', 'kipun'] },
+        { verb: 'Enseño', line: 'Programación en UNIPAZ, y Tobot.', marks: ['tobot'] },
       ],
       record: [
         { when: '2026-04', label: 'abr 2026', what: 'UNIPAZ', detail: 'ACUDA y docencia', who: 'Ingeniero de desarrollo y docente' },
@@ -89,13 +89,13 @@ export const ui = {
       secondary: 'See ACUDA',
     },
     case: { head: 'Every step, tied to its rule', cta: 'Read the case' },
-    facts: { role: 'Role', since: 'Since', where: 'Where', status: 'Status' },
+    facts: { project: 'Project', role: 'Role', since: 'Since', where: 'Where', status: 'Status' },
     background: {
       head: 'I build, found and teach',
       roles: [
-        { verb: 'Build', line: 'AI platforms, like ACUDA.' },
-        { verb: 'Found', line: 'Mocta, my company, and its product Kipun.' },
-        { verb: 'Teach', line: 'Programming at UNIPAZ, and Tobot.' },
+        { verb: 'Build', line: 'AI platforms, like ACUDA.', marks: ['acuda'] },
+        { verb: 'Found', line: 'Mocta, my company, and its product Kipun.', marks: ['mocta', 'kipun'] },
+        { verb: 'Teach', line: 'Programming at UNIPAZ, and Tobot.', marks: ['tobot'] },
       ],
       record: [
         { when: '2026-04', label: 'Apr 2026', what: 'UNIPAZ', detail: 'ACUDA and teaching', who: 'Development engineer and lecturer' },

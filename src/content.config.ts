@@ -15,6 +15,8 @@ const proyectos = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      /** The project's own symbol, in public/logos, shown beside its name. */
+      mark: z.string(),
       order: z.number(),
       group: z.enum(['construye', 'emprende', 'ensena']),
       lede: z.string(),

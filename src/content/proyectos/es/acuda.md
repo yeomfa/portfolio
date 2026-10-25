@@ -1,5 +1,6 @@
 ---
 title: ACUDA
+mark: /logos/acuda.svg
 order: 1
 group: construye
 lede: Plataforma de calidad universitaria para UNIPAZ, con automatización e IA.

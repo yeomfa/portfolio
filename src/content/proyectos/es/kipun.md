@@ -1,5 +1,6 @@
 ---
 title: Kipun
+mark: /logos/kipun.svg
 order: 3
 group: emprende
 lede: Copiloto operativo y financiero para emprendedores y micronegocios en Colombia.

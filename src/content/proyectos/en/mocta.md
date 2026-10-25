@@ -1,5 +1,6 @@
 ---
 title: Mocta
+mark: /logos/mocta.svg
 order: 2
 group: emprende
 lede: My company. We simplify the processes that run a business, with automation and AI.

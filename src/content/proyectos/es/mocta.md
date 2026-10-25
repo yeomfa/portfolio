@@ -1,5 +1,6 @@
 ---
 title: Mocta
+mark: /logos/mocta.svg
 order: 2
 group: emprende
 lede: Mi empresa. Simplificamos con automatización e IA los procesos que mueven una empresa.

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Shot from './Shot.astro';
+import Mark from './Mark.astro';
 import { ui, paths, slugOf, type Lang } from '../i18n/ui';
 
 interface Props {
@@ -23,7 +24,7 @@ const phones = rest.filter((s) => s.kind === 'phone');
     <div class="container split">
       <div class="split__text">
         <p class="crumb"><a href={paths.section(lang, t.ids.projects)}>{t.project.crumb}</a></p>
-        <h1 id="h-project">{d.title}</h1>
+        <h1 class="named" id="h-project"><Mark src={d.mark} />{d.title}</h1>
         <p class="lead">{d.lede}</p>
         <dl class="facts">
           <div><dt>{t.facts.role}</dt><dd class="is-person">{d.role}</dd></div>
@@ -72,7 +73,7 @@ const phones = rest.filter((s) => s.kind === 'phone');
     <div class="container">
       <div class="next">
         <span class="caption">{t.project.next}</span>
-        <a href={paths.project(lang, slugOf(next))}>{next.data.title}</a>
+        <a class="named" href={paths.project(lang, slugOf(next))}><Mark src={next.data.mark} />{next.data.title}</a>
         <span class="caption">{next.data.lede}</span>
       </div>
     </div>

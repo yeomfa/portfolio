@@ -1,5 +1,6 @@
 ---
 title: Kipun
+mark: /logos/kipun.svg
 order: 3
 group: emprende
 lede: An operations and finance copilot for entrepreneurs and small businesses in Colombia.

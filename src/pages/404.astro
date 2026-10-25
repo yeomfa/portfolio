@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
 import { ui, paths, slugOf } from '../i18n/ui';
 
 const t = ui.es;
@@ -18,7 +19,7 @@ const projects = (await getCollection('proyectos', (p) => p.id.startsWith('es/')
       </div>
       <ul class="lost" aria-label={t.nav.projects}>
         {projects.map((p) => (
-          <li><a href={paths.project('es', slugOf(p))}>{p.data.title}</a><span class="caption">{p.data.lede}</span></li>
+          <li><a class="named" href={paths.project('es', slugOf(p))}><Mark src={p.data.mark} />{p.data.title}</a><span class="caption">{p.data.lede}</span></li>
         ))}
       </ul>
     </div>

@@ -3,6 +3,7 @@ import { Picture } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Shot from './Shot.astro';
+import Mark from './Mark.astro';
 import retrato from '../assets/retrato.png';
 import { ui, paths, slugOf, EMAIL, LINKEDIN, GITHUB, type Lang } from '../i18n/ui';
 
@@ -49,6 +50,7 @@ const own = (await getCollection('proyectos', (p) => p.id.startsWith(`${lang}/`)
         <h2 id="h-case">{t.case.head}</h2>
         <p class="lead">{acuda.data.lede}</p>
         <dl class="facts">
+          <div><dt>{t.facts.project}</dt><dd class="named named--fact"><Mark src={acuda.data.mark} />{acuda.data.title}</dd></div>
           <div><dt>{t.facts.role}</dt><dd class="is-person">{acuda.data.role}</dd></div>
           <div><dt>{t.facts.since}</dt><dd><time class="measured" datetime={acuda.data.since}>{acuda.data.sinceLabel}</time></dd></div>
           <div><dt>{t.facts.where}</dt><dd>{acuda.data.where}</dd></div>
@@ -64,7 +66,13 @@ const own = (await getCollection('proyectos', (p) => p.id.startsWith(`${lang}/`)
       <div class="split__text">
         <h2 id="h-background">{t.background.head}</h2>
         <dl class="roles">
-          {t.background.roles.map((r) => <div><dt>{r.verb}</dt><dd>{r.line}</dd></div>)}
+          {t.background.roles.map((r) => (
+            <div>
+              <dt>{r.verb}</dt>
+              <dd>{r.line}</dd>
+              <dd class="roles__marks">{r.marks.map((m) => <Mark src={`/logos/${m}.svg`} />)}</dd>
+            </div>
+          ))}
         </dl>
       </div>
       <div class="record">
@@ -95,7 +103,7 @@ const own = (await getCollection('proyectos', (p) => p.id.startsWith(`${lang}/`)
           <article class="work__item" aria-labelledby={`h-${slugOf(p)}`}>
             <div class="split">
               <div class="split__text">
-                <h3 id={`h-${slugOf(p)}`}>{p.data.title}</h3>
+                <h3 class="named" id={`h-${slugOf(p)}`}><Mark src={p.data.mark} />{p.data.title}</h3>
                 <p class="lead">{p.data.lede}</p>
                 <dl class="facts">
                   <div><dt>{t.facts.role}</dt><dd class="is-person">{p.data.role}</dd></div>

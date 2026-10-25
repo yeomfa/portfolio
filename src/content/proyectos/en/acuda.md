@@ -1,5 +1,6 @@
 ---
 title: ACUDA
+mark: /logos/acuda.svg
 order: 1
 group: construye
 lede: A university quality platform for UNIPAZ, with automation and AI.
