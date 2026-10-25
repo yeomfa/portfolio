@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bitácora, el manual de omaryesid.dev</title>
+  <meta name="description" content="Manual de identidad de omaryesid.dev: logotipo, color, tipografía, piezas, fotografía y voz del sistema Bitácora.">
+  <link rel="icon" href="./logo/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./logo/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&family=Atkinson+Hyperlegible+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./manual.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Manual">
+    <div class="container">
+      <a class="nav__home" href="#top" aria-label="omaryesid.dev, inicio del manual"><img src="./logo/wordmark-dark.svg" width="637" height="94" alt=""></a>
+      <ul>
+        <li><a href="#marca">Marca</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#tipografia">Tipos</a></li>
+        <li><a href="#piezas">Piezas</a></li>
+        <li><a href="#fotografia">Fotos</a></li>
+        <li><a href="#voz">Voz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div>
+          <h1>Tú en ámbar; la máquina en azul.</h1>
+          <p class="lead">Manual de identidad de omaryesid.dev: marca, color, tipos, piezas y voz.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="./tokens.css" download>Descargar tokens.css</a>
+            <a class="btn" href="#marca">Ver la marca</a>
+          </div>
+        </div>
+        <figure class="panels anatomy" aria-label="El logotipo y sus dos partes">
+          <div class="anatomy__mark"><img src="./logo/wordmark-dark.svg" width="637" height="94" alt="omaryesid.dev"></div>
+          <div class="anatomy__part"><b class="is-person">omaryesid</b><span class="caption">Tú, en tinta</span></div>
+          <div class="anatomy__part"><b class="is-machine">.dev</b><span class="caption">La máquina, en azul frío</span></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="marca" aria-labelledby="h-marca">
+      <div class="container">
+        <header class="head">
+          <h2 id="h-marca">El logotipo y el monograma</h2>
+          <p class="lead">Host Grotesk 500 en trazos: los archivos no dependen de la fuente.</p>
+        </header>
+        <div class="panels marks">
+          <figure class="mark mark--wide"><div><img class="wm" src="./logo/wordmark-dark.svg" width="637" height="94" alt="Logotipo sobre fondo oscuro"></div><figcaption class="caption">Sobre fondo oscuro</figcaption></figure>
+          <figure class="mark mark--side"><div><img class="mono-l" src="./logo/monogram.svg" width="512" height="512" alt="Monograma o punto sobre ámbar"></div><figcaption class="caption">Monograma</figcaption></figure>
+          <figure class="mark mark--half" data-scheme="paper"><div><img class="wm" src="./logo/wordmark-light.svg" width="637" height="94" alt="Logotipo sobre papel"></div><figcaption class="caption">Sobre papel</figcaption></figure>
+          <figure class="mark mark--third"><div><img class="mono-m" src="./logo/monogram-quiet.svg" width="512" height="512" alt="Monograma callado sobre el fondo"></div><figcaption class="caption">Monograma callado</figcaption></figure>
+          <figure class="mark mark--third"><div class="icons"><img src="./logo/favicon.svg" width="16" height="16" alt=""><img src="./logo/favicon-32.png" width="32" height="32" alt=""><img src="./logo/apple-touch-icon.png" width="60" height="60" alt=""></div><figcaption class="caption">Favicon a 16, 32 y 60&nbsp;px</figcaption></figure>
+        </div>
+        <dl class="specs">
+          <div><dt>Área de respeto</dt><dd>La altura de la o, alrededor de todo el logotipo.</dd></div>
+          <div><dt>Tamaño mínimo</dt><dd><span class="measured">96&nbsp;px</span> el logotipo, <span class="measured">16&nbsp;px</span> el monograma.</dd></div>
+          <div><dt>Archivos</dt><dd class="files"><a class="link" href="./logo/wordmark-dark.svg" download>Logotipo oscuro</a><a class="link" href="./logo/wordmark-light.svg" download>Logotipo claro</a><a class="link" href="./logo/monogram.svg" download>Monograma</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="color" aria-labelledby="h-color">
+      <div class="container">
+        <header class="head">
+          <h2 id="h-color">Dos significados, nunca cruzados</h2>
+          <p class="lead">Sobre un negro cálido, tomado del fondo de tu retrato.</p>
+        </header>
+        <div class="panels meanings">
+          <div class="meaning">
+            <i class="chip-swatch sw-accent" aria-hidden="true"></i>
+            <div>
+              <h3>Tú</h3>
+              <p class="values measured"><span>--color-accent</span><span>oklch(82% 0.15 82)</span><span>#f4b93c</span></p>
+              <p>El botón principal, tu rol, el paso actual. Menos del 5% de la pantalla.</p>
+            </div>
+          </div>
+          <div class="meaning">
+            <i class="chip-swatch sw-cool" aria-hidden="true"></i>
+            <div>
+              <h3>La máquina</h3>
+              <p class="values measured"><span>--color-cool</span><span>oklch(80% 0.09 240)</span><span>#87c6f2</span></p>
+              <p>Fechas, versiones y lecturas: lo que escribió un sistema.</p>
+            </div>
+          </div>
+        </div>
+        <ul class="neutrals" aria-label="Neutros">
+          <li><i class="n-paper-3"></i><span>Fondo profundo</span></li>
+          <li><i class="n-paper"></i><span>Fondo</span></li>
+          <li><i class="n-paper-2"></i><span>Panel</span></li>
+          <li><i class="n-rule"></i><span>Línea</span></li>
+          <li><i class="n-muted"></i><span>Apagado</span></li>
+          <li><i class="n-ink"></i><span>Tinta</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--band" id="tipografia" aria-labelledby="h-tipografia">
+      <div class="container">
+        <header class="head">
+          <h2 id="h-tipografia">Host Grotesk lee, la mono mide</h2>
+          <p class="lead">Host Grotesk 400 y 500; Atkinson Hyperlegible Mono 400, solo para lo medido.</p>
+        </header>
+        <div class="waterfall">
+          <div class="step"><div class="step__meta"><span>Portada</span><span class="measured">84&nbsp;px</span></div><p class="step__sample s-display">Automatizo lo que hoy es manual.</p></div>
+          <div class="step"><div class="step__meta"><span>Sección</span><span class="measured">52&nbsp;px</span></div><p class="step__sample s-section">Lo que construí en UNIPAZ</p></div>
+          <div class="step"><div class="step__meta"><span>Título</span><span class="measured">25&nbsp;px</span></div><p class="step__sample s-title">ACUDA</p></div>
+          <div class="step"><div class="step__meta"><span>Cuerpo</span><span class="measured">16&nbsp;px</span></div><p class="step__sample s-body">Cada paso del trabajo de grado queda ligado a la norma que lo respalda.</p></div>
+          <div class="step"><div class="step__meta"><span>Medido</span><span class="measured">15&nbsp;px</span></div><p class="step__sample s-measured">abr 2026, nov 2023, ago 2023</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="piezas" aria-labelledby="h-piezas">
+      <div class="container">
+        <header class="head">
+          <h2 id="h-piezas">Las piezas y la bitácora</h2>
+          <p class="lead">Los controles, y tu historial como registro.</p>
+        </header>
+        <div class="panels pieces">
+          <div class="piece">
+            <h3>Botones</h3>
+            <div class="piece__body piece__body--stack">
+              <a class="btn btn--primary" href="mailto:omaryesidfa@gmail.com">Escríbeme</a>
+              <a class="btn" href="https://acuda.unipaz.edu.co" target="_blank" rel="noopener">Ver ACUDA<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+              <button class="btn" type="button" disabled>Sin conexión</button>
+            </div>
+          </div>
+          <div class="piece">
+            <h3>Chips</h3>
+            <div class="piece__body">
+              <span class="chip chip--person">Omar</span>
+              <span class="chip chip--person">Paso actual</span>
+              <span class="chip chip--machine">abr 2026</span>
+              <span class="chip chip--machine">GHCR</span>
+            </div>
+          </div>
+          <div class="piece">
+            <h3>Campo</h3>
+            <div class="piece__body">
+              <div class="field">
+                <label for="correo">Tu correo</label>
+                <input id="correo" name="email" type="email" autocomplete="email" placeholder="nombre@ejemplo.com" aria-describedby="correo-ayuda">
+                <small id="correo-ayuda">Solo para responderte.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panels record">
+          <ol class="trail" aria-label="Historial">
+            <li><time class="measured" datetime="2026-04">abr 2026</time><span class="who">Líder de desarrollo</span><span class="what">ACUDA, desde cero en UNIPAZ<span>Next.js y NestJS, arquitectura hexagonal.</span></span></li>
+            <li><time class="measured" datetime="2023-12">dic 2023</time><span class="who">Ingeniero de Sistemas</span><span class="what">Universidad del Magdalena</span></li>
+            <li><time class="measured" datetime="2023-11">nov 2023</time><span class="who">Desarrollador</span><span class="what">Crear Colombia<span>Control de calidad de laboratorio, con trazabilidad.</span></span></li>
+            <li><time class="measured" datetime="2023-08">ago 2023</time><span class="who">Ingeniero</span><span class="what">DAABON<span>Prefacturación automática en zona franca.</span></span></li>
+          </ol>
+          <div class="reading">
+            <p class="reading__value">3+</p>
+            <p>años construyendo software de punta a punta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fotografia" aria-labelledby="h-fotografia">
+      <div class="container">
+        <header class="head">
+          <h2 id="h-fotografia">Tu retrato y tus pantallas reales</h2>
+          <p class="lead">Un solo bisel para PC y celular, sin notch ni barra de navegador.</p>
+        </header>
+        <div class="photos">
+          <figure class="photo photo--portrait">
+            <div class="photo__frame"><img src="../assets/img/omar-fandino-900.jpg" width="900" height="900" alt="Retrato de Omar Fandiño sobre fondo negro, con contraluz ámbar" loading="lazy"></div>
+            <figcaption class="caption">A color por ahora; el filtro está por decidir.</figcaption>
+          </figure>
+          <figure class="photo photo--screen">
+            <div class="photo__frame"><img src="../assets/img/screens/acuda/acuda-expediente-1600.jpg" width="1600" height="1000" alt="ACUDA en tema oscuro: un expediente de trabajo de grado en curso, con el paso actual y su plazo" loading="lazy"></div>
+            <figcaption class="caption">ACUDA en tema oscuro, que se asienta sobre el fondo. Datos de demostración.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voz" aria-labelledby="h-voz">
+      <div class="container">
+        <header class="head head--stack">
+          <h2 id="h-voz">Escribe como una bitácora</h2>
+        </header>
+        <table class="voice">
+          <thead><tr><th scope="col">Así</th><th scope="col">No así</th></tr></thead>
+          <tbody>
+            <tr><td>Automatizo lo que hoy es manual.</td><td>Soluciones integrales con inteligencia artificial.</td></tr>
+            <tr><td>ACUDA liga cada paso del trabajo de grado a su norma.</td><td>Una plataforma moderna para la gestión académica.</td></tr>
+            <tr><td>abr 2026, UNIPAZ, Barrancabermeja.</td><td>Recientemente, en una institución educativa.</td></tr>
+          </tbody>
+        </table>
+        <p class="rule-line">El valor, su unidad, la fecha y quién lo hizo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mast">
+    <div class="container">
+      <div class="mast__mark"><img src="./logo/wordmark-dark.svg" width="637" height="94" alt="omaryesid.dev"></div>
+      <ul>
+        <li><a class="link" href="../design.md">design.md</a></li>
+        <li><a class="link" href="./tokens.css">tokens.css</a></li>
+        <li><a class="link" href="https://github.com/yeomfa" target="_blank" rel="noopener">GitHub<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+        <li><a class="link" href="https://www.linkedin.com/in/omarfandino" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+      </ul>
+      <p class="mast__line caption">Manual de identidad, versión 1, octubre de 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

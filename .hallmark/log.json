@@ -1,0 +1,88 @@
+[
+ {
+  "shape": "Split Studio",
+  "theme": "console",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "hero": "Poster",
+  "nav": "floating pill",
+  "footer": "statement",
+  "imagery": "user portrait and real captures of ACUDA, Kipun, Mocta, Tobot",
+  "photos": [
+   "src/assets/retrato.png"
+  ],
+  "entry": "src/pages/index.astro",
+  "fingerprint": "site:poster+case+roles-trail+work-splits+contact",
+  "sections": [
+   "hero poster",
+   "case split",
+   "roles and trail",
+   "work splits",
+   "contact"
+  ],
+  "signature": "the portrait amber rim light as the person colour",
+  "waived": [
+   "44c",
+   "77"
+  ],
+  "prompt": "portafolio omaryesid.dev, una pagina por proyecto, Astro",
+  "date": "2026-10-25",
+  "mode": "build"
+ },
+ {
+  "shape": "Specimen",
+  "theme": "console",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "hero": "Stage",
+  "nav": "edge-aligned wordmark and six anchors",
+  "footer": "mast, wordmark over the files",
+  "imagery": "user portrait and one real ACUDA capture",
+  "photos": [
+   "assets/img/omar-fandino-900.jpg",
+   "assets/img/screens/acuda/acuda-trazabilidad-1600.jpg"
+  ],
+  "entry": "brand/index.html",
+  "fingerprint": "manual:marca+color+tipos+piezas+fotos+voz",
+  "sections": [
+   "hero anatomy",
+   "marca bento",
+   "color meanings",
+   "type waterfall",
+   "pieces and trail",
+   "photos",
+   "voice table"
+  ],
+  "signature": "the wordmark read as the system: omaryesid in ink, .dev in the machine blue",
+  "waived": [],
+  "prompt": "manual de identidad Bitacora para omaryesid.dev",
+  "date": "2026-10-25",
+  "mode": "build"
+ },
+ {
+  "shape": "comparison sheet",
+  "theme": "console",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "hero": "Stage",
+  "nav": "edge-aligned wordmark and anchors",
+  "footer": "one line",
+  "imagery": "user portrait",
+  "photos": [
+   "assets/img/omar-fandino-900.jpg"
+  ],
+  "entry": "exploracion/index.html",
+  "fingerprint": "exploration:bitacora+revelado+oficio",
+  "sections": [
+   "hero idea",
+   "bitacora",
+   "revelado",
+   "oficio",
+   "choose"
+  ],
+  "signature": "same portrait and facts in three materials",
+  "waived": [
+   "37"
+  ],
+  "prompt": "exploracion de identidad para omaryesid.dev",
+  "date": "2026-10-25",
+  "mode": "build"
+ }
+]
