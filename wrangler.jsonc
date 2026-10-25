@@ -10,9 +10,10 @@
     "html_handling": "auto-trailing-slash",
   },
   "workers_dev": true,
-  // Once omaryesid.dev is an active zone in this Cloudflare account, uncomment:
-  // "routes": [
-  //   { "pattern": "omaryesid.dev", "custom_domain": true },
-  //   { "pattern": "www.omaryesid.dev", "custom_domain": true },
-  // ],
+  // Both hostnames point at this Worker. A Cloudflare Redirect Rule sends
+  // www.omaryesid.dev to https://omaryesid.dev (301) before the request reaches it.
+  "routes": [
+    { "pattern": "omaryesid.dev", "custom_domain": true },
+    { "pattern": "www.omaryesid.dev", "custom_domain": true },
+  ],
 }
