@@ -10,6 +10,10 @@
     "html_handling": "auto-trailing-slash",
   },
   "workers_dev": true,
+  // Enabled in the dashboard too; deploys from the repo would turn it off without this.
+  "observability": {
+    "enabled": true,
+  },
   // Both hostnames point at this Worker. A Cloudflare Redirect Rule sends
   // www.omaryesid.dev to https://omaryesid.dev (301) before the request reaches it.
   "routes": [
